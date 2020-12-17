@@ -30,13 +30,12 @@ struct ContentView: View {
     }
     
     var body: some View {
-                NavigationView {
-                    RadialGradient(gradient: Gradient(colors: [.blue, .black]), center: .center, startRadius: Constants.Gradient.start, endRadius: Constants.Gradient.end).ignoresSafeArea()
-                        .overlay(
+        NavigationView {
+            RadialGradient(gradient: Gradient(colors: [.blue, .black]), center: .center, startRadius: Constants.Gradient.start, endRadius: Constants.Gradient.end).ignoresSafeArea()
+                .overlay(
                     VStack {
                         CircleLogo().frame(width: Constants.Logo.logoWidth, height: Constants.Logo.logoHeigh, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .padding(130)
-                        
                         
                         ZStack(alignment: .leading) {
                             if login.isEmpty {
@@ -65,7 +64,8 @@ struct ContentView: View {
                             
                         }
                         
-                        NavigationLink(destination: FlickrCollectionView()) {
+                        NavigationLink(destination: FlickrCollectionView()
+                                        .navigationBarHidden(true)) {
                             Text("Login")
                         }.navigationBarTitle("")
                         .frame(width: 180, height: 40, alignment: .center)
@@ -73,12 +73,11 @@ struct ContentView: View {
                         .cornerRadius(25)
                         .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                         .padding(.top)
-
                         
                         Spacer()
                         
                     }.padding())
-                }
+        }
     }
 }
 
